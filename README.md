@@ -1,5 +1,5 @@
 # cryoem-stuff
-A repository for any scripts that could be useful for other people doing cryoEM processing. Some of the code may be poorly written, but it shiuld hopefully do the job!
+A repository for any scripts that could be useful for other people doing cryoEM processing. Some of the code may be poorly written, but it should hopefully do the job!
 
 ### bad_frames_finder.sh
 
@@ -12,3 +12,8 @@ Further options are available to provide colour, either randomly generated (good
 
 This script will hopefully be updated in the near future to be more error-proof and featuresome - mostly as I get better with Python!
 
+### tomo_reorder.sh
+
+An old script to speed up preprocessing of tomographic data collected at the electron bio-imaging centre (eBIC) at Diamond Light Source and the GW4 microscope located at Bristol. The script is rudimentary and makes a lot of assumptions about data collection that were true four years ago when I wrote this. The purpose of the script is to use alignframes to motion correct the movies and apply a gain reference (if provided) then use the newstack command to correctly order the tilts.
+
+The script has long been superseded by other scripts I have written and, more importantly, Warp and Relion 5. It is just here as a reference for work published using it.

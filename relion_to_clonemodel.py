@@ -10,7 +10,7 @@ parser = argparse.ArgumentParser(description='A script to take a star file input
 parser.add_argument('input_star', metavar='/path/to/file.star', type=str,
                     help='The path to star file you wish to use. This should be a Relion 3.1 star file, i.e. it has the optics group section at the top.')
 
-parser.add_argument('tomo_px', metavar='tomo_pixelsize', type=str,
+parser.add_argument('tomo_px', metavar='tomo_pixelsize', type=float,
                     help='The pixel size of the tomograms you wish to apply your particles to. You can check this using the header command on your tomogram.')
 parser.add_argument('--nocolour', action='store_true',
                     help='Set this to disable random colouring of each.')
@@ -20,8 +20,8 @@ parser.add_argument('--force_pixel_size', metavar='forced_pixelsize',
                     help='Use this option to force a specific pixel size from your data (not your tomogram). If your star file has an incorrect pixel size, specify the correct value with this option.')
 args = parser.parse_args()
 
-input_star = sys.argv[1]
-tomo_px = float(sys.argv[2])
+input_star = args.input_star
+tomo_px = args.tomo_px
 # read star and exclude the optics group
 full_star = starfile.read(input_star)
 # fix for Relion 3 star files

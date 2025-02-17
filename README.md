@@ -5,6 +5,12 @@ A repository for any scripts that could be useful for other people doing cryoEM 
 
 Recursively searches a folder and uses the IMOD `header` command to check the number of frames in the movie and compare to a user-specified value. The mismatching movies will be saved to a text file and the bad tilts can be excluded. This was made in a response to an issue with cryoSPARC's reference-based motion correction failing on some micrographs that are missing some frames, as originally documented [here](https://discuss.cryosparc.com/t/reference-based-motion-correction-error-all-movies-must-have-the-same-number-of-frames/12740).
 
+### euler_to_relion.py
+
+A script that will take particle positions in groupings of 2 or 4 from IMOD model files and create a star file with particles aligned along a symmetry defined by the "head" and "tail" of the picks. For two picks, P1 and P2 are head and tail, respectively. For four points, P3 - P2 and P4 - P1 are head and tail - points here must be clockwise starting from the bottom left corner to give the correct head and tail orientation. The centroid (mean between head and tail) is the default particle centre, but the head and tail may be optionally specified. The star file output is generated for Warp by default but can be used to generate Relion 5 star files as well.
+
+Credit to [Daniel Zhang](https://github.com/DanGonite57) for some help with the Euler angles code we originally used for a different script!
+
 ### relion_to_clonemodel.py
 
 A script that can take a 3D refinement star file (e.g. run_data.star) and export CSV files for use in generating IMOD clonemodels. A csv file will be generated for each tomogram featured in your star file. 

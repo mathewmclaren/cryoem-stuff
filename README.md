@@ -26,6 +26,11 @@ For the script to work properly, each sphere must be a single point in its own o
 The following Python packages are required: `numpy`, `eulerangles`, `pandas`, `scipy`, `starfile`, `imodmodel`. Run the script with the --help option for a full list of available commands.
 
 Credit to [Daniel Zhang](https://github.com/DanGonite57) for some help with the Euler angles code we originally used for a different script!
+
+### warp_pytom_extraction.py
+
+A simple script that will process all the XML files within a specified directory and generate separate defocus, dose and tilt text files for use with PyTOM-match-pick.
+
 ### tomo_reorder.sh
 
 An old script to speed up preprocessing of tomographic data collected at the Electron Bio-Imaging Centre (eBIC) at Diamond Light Source and the GW4 microscope located at Bristol. The script is rudimentary and makes a lot of assumptions about data collection that were true four years ago when I wrote this. The purpose of the script is to use alignframes to motion correct the movies and apply a gain reference (if provided) then use the newstack command to correctly order the tilts.
